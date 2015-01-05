@@ -12,6 +12,8 @@ class NewTransaction implements ModelInterface
     protected $currency;
     /** @var string */
     protected $description;
+    /** @var string */
+    protected $tax_code;
 
     /**
      * Returns a mapping
@@ -35,6 +37,9 @@ class NewTransaction implements ModelInterface
                     'type' => 'string',
                 ],
                 'description' => [
+                    'type' => 'string',
+                ],
+                'tax_code' => [
                     'type' => 'string',
                 ],
             ],
@@ -121,6 +126,25 @@ class NewTransaction implements ModelInterface
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * @param string $tax_code
+     *
+     * @return $this
+     */
+    public function setTaxCode($tax_code = "digital")
+    {
+        $this->tax_code = $tax_code;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTaxCode()
+    {
+        return $this->tax_code;
     }
 
 } 
