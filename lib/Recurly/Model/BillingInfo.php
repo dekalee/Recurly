@@ -44,6 +44,8 @@ class BillingInfo implements ModelInterface
     protected $last_four;
     /** @var string */
     protected $verification_value;
+    /** @var string */
+    protected $token_id;
 
     /**
      * Returns a mapping
@@ -115,6 +117,9 @@ class BillingInfo implements ModelInterface
                     'type' => 'string',
                 ],
                 'verification_value' => [
+                    'type' => 'string',
+                ],
+                'token_id' => [
                     'type' => 'string',
                 ],
             ],
@@ -501,5 +506,23 @@ class BillingInfo implements ModelInterface
         return $this->zip;
     }
 
+    /**
+     * @param string $token_id
+     *
+     * @return $this
+     */
+    public function setTokenId($token_id)
+    {
+        $this->token_id = $token_id;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTokenId()
+    {
+        return $this->token_id;
+    }
 
 }
